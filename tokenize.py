@@ -24,8 +24,8 @@ for dir in dirs:
             files[i]=npath+files[i]
         x+=files
 print(len(x))
-flist = ','.join(x)
-spm.SentencePieceTrainer.Train(f'--input={flist} --model_prefix=Telugu_lmwholedata --vocab_size=10000')
+filelist = ','.join(x)
+spm.SentencePieceTrainer.Train(f'--input={filelist} --model_prefix=Telugu_lmwholedata --vocab_size=10000')
 sp=spm.SentencePieceProcessor()
 sp.Load("Telugu_lmwholedata.model")
 b=' '.join(sp.EncodeAsPieces(article))
